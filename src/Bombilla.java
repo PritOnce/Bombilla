@@ -1,19 +1,13 @@
+import java.util.Scanner;
+
 public class Bombilla {
     private boolean estado=false;
     private String color;
     private int vatios;
-    private float horas;
+    private float horas=10;
 
 //creamos el constructor
 public Bombilla(){
-
-}
-//constructor objeto
-public Bombilla(Bombilla b){
-    this.estado=b.estado;
-    this.color=b.color;
-    this.vatios=b.vatios;
-    this.horas=b.horas;
 
 }
 public Bombilla(String color,int vatios){
@@ -24,7 +18,7 @@ public Bombilla(String color,int vatios){
     public Bombilla(float horas,int vatios,String color){
         this.vatios=vatios;
         this.color=color;
-        if (horas>0 && horas<=10){
+        if (horas>0){
             this.estado=true;
         }
         else{
@@ -38,15 +32,16 @@ public Bombilla(String color,int vatios){
     public void setVatios(int vatios){this.vatios=vatios;}
     public float getHoras(){return horas;}
     public void setHoras(float horas) {this.horas = horas;}
-public void recargar(int horas){
-    if(this.horas<10){
+public void recargar(){
+    float horas;
+    System.out.println("¿Cuantas horas quieres añadir?");
+    Scanner sc=new Scanner(System.in);
+    horas= sc.nextFloat();
+    if(horas>0){
         this.horas+=horas;
-    }
-    else{
-        this.horas=horas;
     }
 }
 @Override
-public String toString(){return "La bombilla esta," +estado+ " la potencia de la bombilla es, " +vatios+ " con el color, " +color+ " y una duración de " +horas;}
+public String toString(){return "La bombilla esta" +estado+ " la potencia de la bombilla es, " +vatios+ " con el color, " +color+ " y una duración de " +horas;}
 
 }
